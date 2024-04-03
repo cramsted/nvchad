@@ -2,7 +2,8 @@
 local M = {}
 
 M.ui = {
-	theme = "onedark",
+	theme = "gruvbox",
+  telescope = { style = "bordered"},
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
