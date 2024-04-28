@@ -8,7 +8,22 @@ local util = require "lspconfig/util"
 
 local servers = {
   lua_ls = {},
-  clangd = {},
+  -- clangd = {
+    -- on_attach = on_attach,
+    -- capabilities = capabilities,
+    -- cmd = { "clangd" },
+    -- filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    -- root_dir = util.root_pattern(
+    --   '.clangd',
+    --   '.clang-tidy',
+    --   '.clang-format',
+    --   'compile_commands.json',
+    --   'compile_flags.txt',
+    --   'configure.ac',
+    --   '.git'
+    -- ),
+    -- single_file_support = true
+  -- },
   gopls = {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -68,6 +83,13 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- NOTE: the above forloop did not work for clangd
+require'lspconfig'.clangd.setup{}
+
+-- ***************
+-- Examples
+-- ***************
+--
 -- lspconfig.gopls.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities,
